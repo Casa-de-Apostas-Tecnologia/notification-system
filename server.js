@@ -28,7 +28,7 @@ poolPromise.then(() => {
 });
 
 app.use('/api/messages', messageRoutes);
-app.use('/api/ranking', rankingRoutes);
+//app.use('/api/ranking', rankingRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
