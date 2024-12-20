@@ -1,6 +1,5 @@
 const poolPromise = require('../config/database');
 
-// Função para criar a tabela
 async function createMessageTable() {
   const pool = await poolPromise;
   await pool.request().query(`

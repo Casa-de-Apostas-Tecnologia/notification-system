@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const messageRoutes = require('./routes/messages');
 const rankingRoutes = require('./routes/ranking');
+const promoRoutes = require('./routes/prmo');
 const poolPromise = require('./config/database');
 
 const app = express();
@@ -29,6 +30,7 @@ poolPromise.then(() => {
 
 app.use('/api/messages', messageRoutes);
 //app.use('/api/ranking', rankingRoutes);
+//app.use('/api/promo', promoRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
