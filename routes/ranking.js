@@ -1,7 +1,7 @@
 const express = require('express');
-const router = express.Router();
+const rankingRouter = express.Router();
 const rankingController = require('../controllers/rankingController');
 
-router.get('/check/:clientId', rankingController.checkMessages);
+rankingRouter.get('/check/:clientId', rankingController.checkRanking);
 
 module.exports = rankingRouter;

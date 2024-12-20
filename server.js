@@ -7,7 +7,7 @@ const poolPromise = require('./config/database');
 
 const app = express();
 
-const allowedOrigins = ['https://casadeapostas.com', 'http://localhost:3000'];
+const allowedOrigins = ['https://casadeapostas.com', 'http://localhost'];
 
 app.use(cors({
   origin: (origin, callback) => {
