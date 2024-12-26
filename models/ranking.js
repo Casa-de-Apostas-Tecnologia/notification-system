@@ -19,7 +19,7 @@ module.exports = {
       SELECT * 
       FROM Top50
       WHERE userId != @userId
-      ORDER BY calassificacao;
+      ORDER BY classificacao;
     `;
 
     const result = await pool.request()
