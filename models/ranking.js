@@ -1,4 +1,25 @@
+const sql = require('mssql');
 const poolPromise = require('../config/database');
+
+async function createRankingTable() {
+  const pool = await poolPromise;
+  
+  await pool.request().query(`
+    IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'ranking')
+    BEGIN
+      CREATE TABLE dbo.ranking (
+        id INT IDENTITY(1,1) PRIMARY KEY,
+        nome VARCHAR(255) NOT NULL,
+        somaOdds INT NOT NULL,
+        updatedAt DATETIME,
+        classificacao INT NOT NULL
+
+      );
+    END
+  `);
+  console.log('Tabelas dbo.ranking criadas ou já existentes');
+}
+createRankingTable();
 
 module.exports = {
   async getRankings(userId) {
