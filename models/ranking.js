@@ -8,9 +8,9 @@ async function createRankingTable() {
     IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbo' AND TABLE_NAME = 'ranking')
     BEGIN
       CREATE TABLE dbo.ranking (
-        id INT IDENTITY(1,1) PRIMARY KEY,
+        id INT NOT NULL,
         nome VARCHAR(255) NOT NULL,
-        somaOdds INT NOT NULL,
+        somaOdds DECIMAL(10, 2) NOT NULL,
         updatedAt DATETIME,
         classificacao INT NOT NULL
 
