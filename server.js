@@ -1,7 +1,6 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const messageRoutes = require('./routes/messages');
 const rankingRoutes = require('./routes/ranking');
 const promoRoutes = require('./routes/promo');
 const poolPromise = require('./config/database');
@@ -28,7 +27,6 @@ poolPromise.then(() => {
   console.error('Erro ao conectar ao banco de dados', err);
 });
 
-app.use('/api/messages', messageRoutes);
 app.use('/api/ranking', rankingRoutes);
 //app.use('/api/promo', promoRoutes);
 
